@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="dist/output.css" rel="stylesheet">
+    <title>Pipeline Masters</title>
+</head>
+<body>
+    <div class="flex min-h-screen items-center justify-center bg-white">
+        <div class="p-6 overflow-scroll px-0">
+      <table class="w-full min-w-max table-auto text-left">
+        <thead>
+          <tr>
+            <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+              <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Name</p>
+            </th>
+            <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+              <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Score</p>
+            </th>
+            <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+              <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Date</p>
+            </th>
+            <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+              <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Status</p>
+            </th>
+            <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+              <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Build</p>
+            </th>
+            <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+              <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70"></p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-4 border-b border-blue-gray-50">
+              <div class="flex items-center gap-3">
+                <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg" alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1">
+                <div class="flex flex-col">
+                    <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">Spotify</p>
+                    <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">v2.0</p>
+                  </div>
+              </div>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">2,500</p>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">Wed 3:00pm</p>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+                <div class="w-max">
+                  <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-amber-500/20 text-amber-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
+                    <span class="">in progress</span>
+                  </div>
+                </div>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <div class="flex items-center gap-3">
+                <div class="flex flex-col">
+                    <button type="button" class="text-left">
+                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal capitalize hover:underline">1.2.3.526</p>
+                    </button>
+                    <button type="button" class="text-left">
+                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70 hover:underline">50bba7</p>
+                    </button>
+                  </div>
+              </div>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <button class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:bg-gray-900/10 active:bg-gray-900/20" type="button">
+                <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current text-gray-400">
+                        <path d="M19.354 14a3.08 3.08 0 0 1-2.854-1.567.247.247 0 0 0-.444.062l-1.577 5.013a1.538 1.538 0 0 1-2.9-.055L9.256 8.8a.25.25 0 0 0-.485.007 14.646 14.646 0 0 1-1.2 3.754A2.811 2.811 0 0 1 4.873 14H.467a.251.251 0 0 0-.193.091.247.247 0 0 0-.052.207 12 12 0 0 0 23.556 0 .251.251 0 0 0-.245-.3Z"/><path d="M4.873 12c.936 0 1.013 0 1.914-3.564.206-.814.448-1.772.755-2.9A1.479 1.479 0 0 1 9 4.5a1.477 1.477 0 0 1 1.454 1.047l2.4 8.928a.25.25 0 0 0 .48.011l1.345-4.286a1.479 1.479 0 0 1 1.348-.99 1.52 1.52 0 0 1 1.443.774c.1.193.2.382.285.564.581 1.172.75 1.448 1.6 1.448h4.393a.251.251 0 0 0 .179-.075.247.247 0 0 0 .071-.18A12 12 0 0 0 0 11.745.249.249 0 0 0 .252 12Z"/>
+                    </svg>
+                </span>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td class="p-4 border-b border-blue-gray-50">
+              <div class="flex items-center gap-3">
+                <img src="https://docs.material-tailwind.com/img/logos/logo-amazon.svg" alt="Amazon" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1">
+                <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">Amazon</p>
+              </div>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">5,000</p>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">Wed 1:00pm</p>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <div class="w-max">
+                <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-green-500/20 text-green-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
+                  <span class="">success</span>
+                </div>
+              </div>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <div class="flex items-center gap-3">
+                <div class="flex flex-col">
+                    <button type="button" class="text-left">
+                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal capitalize hover:underline">1.6.4.345</p>
+                    </button>
+                    <button type="button" class="text-left">
+                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70 hover:underline">77bfc4</p>
+                    </button>
+                </div>
+              </div>
+            </td>
+            <td class="p-4 border-b border-blue-gray-50">
+              <button class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:bg-gray-900/10 active:bg-gray-900/20" type="button">
+                <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 fill-current text-gray-400">
+                        <path d="M19.354 14a3.08 3.08 0 0 1-2.854-1.567.247.247 0 0 0-.444.062l-1.577 5.013a1.538 1.538 0 0 1-2.9-.055L9.256 8.8a.25.25 0 0 0-.485.007 14.646 14.646 0 0 1-1.2 3.754A2.811 2.811 0 0 1 4.873 14H.467a.251.251 0 0 0-.193.091.247.247 0 0 0-.052.207 12 12 0 0 0 23.556 0 .251.251 0 0 0-.245-.3Z"/><path d="M4.873 12c.936 0 1.013 0 1.914-3.564.206-.814.448-1.772.755-2.9A1.479 1.479 0 0 1 9 4.5a1.477 1.477 0 0 1 1.454 1.047l2.4 8.928a.25.25 0 0 0 .48.011l1.345-4.286a1.479 1.479 0 0 1 1.348-.99 1.52 1.52 0 0 1 1.443.774c.1.193.2.382.285.564.581 1.172.75 1.448 1.6 1.448h4.393a.251.251 0 0 0 .179-.075.247.247 0 0 0 .071-.18A12 12 0 0 0 0 11.745.249.249 0 0 0 .252 12Z"/>
+                    </svg>
+                </span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+</body>
+</html>

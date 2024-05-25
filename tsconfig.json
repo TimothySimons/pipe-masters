@@ -1,0 +1,12 @@
+{
+    "include": ["./src/**/*.ts"],
+    "exclude": [],
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDir": "src",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "target": "ES2022",
+        "lib": ["DOM", "ES2022"],
+    }
+}
