@@ -5,7 +5,8 @@ export interface LeaderboardEntry {
     date: Date;
     build: string;
     hash: string;
-    // TODO: recent: ?string
+    // TODO: image: Object | null; // Perhaps new image() as a default
+    // TODO: highlighted: boolean | null;
 }
 
 
@@ -57,6 +58,8 @@ function renderRows<T extends HTMLElement>(element: T, entries: LeaderboardEntry
 function toRowHTML(entry: LeaderboardEntry) {
     // TODO: dynamic image
     // TODO: fix date representation
+    // TODO: do we need .trim
+    // TODO: highlighted 
     return `
       <tr>
         <td class="p-4 border-b border-blue-gray-50">
