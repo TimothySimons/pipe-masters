@@ -5,6 +5,7 @@ export interface LeaderboardEntry {
     date: Date;
     build: string;
     hash: string;
+    // TODO: imageURL: string | null; // Apparently this is best practice - image should be saved server side
     // TODO: image: Object | null; // Perhaps new image() as a default
     // TODO: highlighted: boolean | null;
 }
