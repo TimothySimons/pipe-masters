@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="dist/output.css" rel="stylesheet">
+    <title>Pipeline Masters</title>
+    <script type="module">
+      import { Leaderboard } from './dist/leaderboard.js'
+
+
+      // TODO: move output.css to something like src/pm-output.css
+      // TODO: look at order of imports in-terms of class resolution with HTML5
+      const today = new Date()
+      Leaderboard(document.getElementById('pipe-masters'), [{
+        name: "Spotify",
+        version: "v2.0",
+        score: 3200,
+        date: today,
+        build: "1.2.3.526",
+        hash: "50bba7"
+      }]);
+    </script>
+</head>
+<body>
+    <div class="flex min-h-screen items-center justify-center bg-white">
+        <div class="p-6 overflow-scroll px-0">
+      <table id="pipe-masters"></table>
+    </div>
+    </div>
+</body>
+</html>

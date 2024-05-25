@@ -1,6 +1,7 @@
 {
     "host": "localhost",
     "port": 8080,
+    "startPath": "demo.html",
     "server": {
       "baseDir": "."
     }
