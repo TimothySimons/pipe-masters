@@ -1,3 +1,5 @@
+// TODO: include output.css instructions for users be sure to talk about order preference
+
 export interface LeaderboardEntry {
     name: string;
     version: string;
