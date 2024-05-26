@@ -9,9 +9,12 @@
     },
     "scripts": {
         "build:js": "tsc --sourceMap --declaration",
-        "build:css": "tailwindcss -i src/input.css -o dist/output.css",
+        "build:css": "tailwindcss -i src/input.css -o src/output.css",
         "build:bundle": "esbuild src/leaderboard.ts --bundle --format=esm --outfile=dist/bundle.js",
         "dist": "npm run build:js && npm run build:css && npm run build:bundle",
         "start": "lite-server --config=local-server.json"
-    }
+    },
+    "esbuild": {
+        "copy": ["src/*.html"]
+      }
 }

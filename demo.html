@@ -3,30 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="dist/output.css" rel="stylesheet">
+    <link href="src/output.css" rel="stylesheet">
     <title>Pipeline Masters</title>
     <script type="module">
-      import { Leaderboard } from './dist/leaderboard.js'
+      import { Leaderboard, Status } from './dist/leaderboard.js'
 
+      const getRandomTime = () => {
+        const hour = Math.floor(Math.random() * 24);
+        const minute = Math.floor(Math.random() * 60);
+        const second = Math.floor(Math.random() * 60);
+        return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
+      };
 
-      // TODO: move output.css to something like src/pm-output.css
-      // TODO: look at order of imports in-terms of class resolution with HTML5
-      const today = new Date()
-      Leaderboard(document.getElementById('pipe-masters'), [{
-        name: "Spotify",
-        version: "v2.0",
-        score: 3200,
-        date: today,
-        build: "1.2.3.526",
-        hash: "50bba7"
-      }]);
+      const day0 = new Date()
+      const day1 = new Date(day0.getFullYear(), day0.getMonth(), day0.getDate() - 13, ...getRandomTime().split(':'))
+      const day2 = new Date(day0.getFullYear(), day0.getMonth(), day0.getDate() - 5, ...getRandomTime().split(':'))
+      const day3 = new Date(day0.getFullYear(), day0.getMonth() - 1, day0.getDate() - 23, ...getRandomTime().split(':'))
+      const day4 = new Date(day0.getFullYear(), day0.getMonth() - 2, day0.getDate() - 1, ...getRandomTime().split(':'))
+
+      const api = Leaderboard(document.getElementById('pipe-masters'));
+      api.update([
+        {name: "Deep Blue", version: "2.0", status: Status.InProgress, build: "db_2.0", hash: "5ji0b5c", imageURL: "assets/deepblue.png"},
+        {name: "Stockfish", version: "16.1", score: 3530, date: day1, status: Status.Success, build: "sf_16.1", hash: "61acbfc", imageURL: "assets/stockfish.png"},
+        {name: "Leela", version: "5.0", score: 3462, date: day2, status: Status.Success, build: "5643", hash: "14abc9a", imageURL: "assets/leela.png", highlight: true},
+        {name: "Komodo", version: "2.5", score: 3419, date: day3, status: Status.Success, build: "632.1.4", hash: "91aho2c", imageURL: "assets/komodo.png"},
+        {name: "Deep Blue", version: "1.5", score: 2725, date: day4, status: Status.Success, build: "db_1.5", hash: "71a8bfc", imageURL: "assets/deepblue.png"},
+      ]);
+
     </script>
 </head>
 <body>
     <div class="flex min-h-screen items-center justify-center bg-white">
-        <div class="p-6 overflow-scroll px-0">
-      <table id="pipe-masters"></table>
-    </div>
+      <div class="p-6 overflow-scroll px-0">
+        <ol>
+          <table id="pipe-masters"></table>
+        </ol>
+      </div>
     </div>
 </body>
 </html>
