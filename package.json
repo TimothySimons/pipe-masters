@@ -1,20 +1,29 @@
 {
-    "name": "pipe-masters",
-    "version": "1.0.0",
-    "devDependencies": {
-        "esbuild": "^0.21.3",
-        "lite-server": "^2.6.1",
-        "tailwindcss": "^3.4.3",
-        "typescript": "^4.0.0"
-    },
-    "scripts": {
-        "build:js": "tsc --sourceMap --declaration",
-        "build:css": "tailwindcss -i src/input.css -o src/output.css",
-        "build:bundle": "esbuild src/leaderboard.ts --bundle --format=esm --outfile=dist/bundle.js",
-        "dist": "npm run build:js && npm run build:css && npm run build:bundle",
-        "start": "lite-server --config=local-server.json"
-    },
-    "esbuild": {
-        "copy": ["src/*.html"]
-      }
+  "name": "pipe-masters",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "esbuild": "^0.21.3",
+    "eslint": "^8.57.0",
+    "lite-server": "^2.6.1",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^4.0.0"
+  },
+  "scripts": {
+    "build:js": "tsc --sourceMap --declaration",
+    "build:css": "tailwindcss -i src/input.css -o src/output.css",
+    "build:bundle": "esbuild src/leaderboard.ts --bundle --format=esm --outfile=dist/bundle.js",
+    "lint": "eslint src/*.ts",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "dist": "npm run build:js && npm run build:css && npm run build:bundle",
+    "start": "lite-server --config=local-server.json"
+  },
+  "esbuild": {
+    "copy": [
+      "src/*.html"
+    ]
+  }
 }

@@ -1,5 +1,4 @@
-const TABLE_TEMPLATE: string =
-`<thead>
+const TABLE_TEMPLATE: string = `<thead>
 <tr>
     <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
     <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70"></p>
@@ -27,9 +26,7 @@ const TABLE_TEMPLATE: string =
 <tbody></tbody>
 `;
 
-
-const ROW_TEMPLATE =
-`<tr class="bg-teal-700 {$HIGHLIGHT}">
+const ROW_TEMPLATE = `<tr class="bg-teal-700 {$HIGHLIGHT}">
    <td class="p-4 border-b border-blue-gray-50">
       <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">{$INDEX}</p>
    </td>
@@ -79,57 +76,56 @@ const ROW_TEMPLATE =
     </td>
   </tr>`;
 
-
 export enum Status {
   InProgress = 'in progress',
-  Success = 'success'
+  Success = 'success',
 }
-
 
 export interface LeaderboardEntry {
-    name: string;
-    version: string;
-    status: Status;
-    build: string;
-    hash: string;
-    date: Date | null;
-    score: number | null;
-    imageURL: string | null;
-    highlight: boolean | null;
+  name: string;
+  version: string;
+  status: Status;
+  build: string;
+  hash: string;
+  date: Date | null;
+  score: number | null;
+  imageURL: string | null;
+  highlight: boolean | null;
 }
-
 
 export interface Api {
   update(entries: LeaderboardEntry[]): void;
 }
 
-
 export function Leaderboard<T extends HTMLTableElement>(element: T): Api {
-    element.className = 'w-full min-w-max table-auto text-left';
-    element.innerHTML = TABLE_TEMPLATE;
+  element.className = 'w-full min-w-max table-auto text-left';
+  element.innerHTML = TABLE_TEMPLATE;
 
-    return {
-      update(entries: LeaderboardEntry[]) {
-        const tbody = element.querySelector('tbody');
-        const rows = tbody.querySelectorAll('tr');
-        rows.forEach(row => row.remove());
+  return {
+    update(entries: LeaderboardEntry[]) {
+      const tbody = element.querySelector('tbody');
+      const rows = tbody.querySelectorAll('tr');
+      rows.forEach(row => row.remove());
 
-        let index = 1;
-        const rowHTML = entries.map((entry) => toRowHTML(index++, entry)).join('');
-        tbody.innerHTML = rowHTML
-      }
-    }
+      let index = 1;
+      const rowHTML = entries.map(entry => toRowHTML(index++, entry)).join('');
+      tbody.innerHTML = rowHTML;
+    },
+  };
 }
-
 
 function toRowHTML(index: number, entry: LeaderboardEntry): string {
   const getOrdinalSuffix = (day: number): string => {
-    if (day > 3 && day < 21) return 'th'
+    if (day > 3 && day < 21) return 'th';
     switch (day % 10) {
-        case 1: return 'st';
-        case 2: return 'nd';
-        case 3: return 'rd';
-        default: return 'th';
+      case 1:
+        return 'st';
+      case 2:
+        return 'nd';
+      case 3:
+        return 'rd';
+      default:
+        return 'th';
     }
   };
 
@@ -141,20 +137,24 @@ function toRowHTML(index: number, entry: LeaderboardEntry): string {
     return `${day}<sup>${suffix}</sup> ${month} ${year}`;
   };
 
-  ""
+  ('');
 
-
-  return ROW_TEMPLATE
-    .replace('{$INDEX}', index.toString())
+  return ROW_TEMPLATE.replace('{$INDEX}', index.toString())
     .replaceAll('{$NAME}', entry.name)
     .replace('{$BUILD}', entry.build)
     .replace('{$HASH}', entry.hash)
     .replace('{$VERSION}', entry.version)
     .replace('{$IMAGE_URL}', entry.imageURL || '')
     .replace('{$STATUS}', entry.status)
-    .replace('{$STATUSCOLOUR}', entry.status === Status.Success ? 'bg-green-500/20 text-green-900' : 'bg-amber-500/20 text-amber-900')
+    .replace(
+      '{$STATUSCOLOUR}',
+      entry.status === Status.Success ? 'bg-green-500/20 text-green-900' : 'bg-amber-500/20 text-amber-900',
+    )
     .replace('{$HIGHLIGHT}', entry.highlight ? 'bg-opacity-5' : 'bg-opacity-0')
     .replace('{$SCORE}', entry.score !== null && entry.score !== undefined ? entry.score.toString() : '')
     .replace('{$DATE}', entry.date !== null && entry.date !== undefined ? toDateHTML(entry.date) : '')
-    .replace('{$TIME}', entry.date !== null && entry.date !== undefined ? entry.date.toLocaleTimeString() : '');
+    .replace(
+      '{$TIME}',
+      entry.date !== null && entry.date !== undefined ? entry.date.toLocaleTimeString() : '',
+    );
 }
