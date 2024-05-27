@@ -15,11 +15,20 @@
         return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
       };
 
-      const day0 = new Date()
-      const day1 = new Date(day0.getFullYear(), day0.getMonth(), day0.getDate() - 13, ...getRandomTime().split(':'))
-      const day2 = new Date(day0.getFullYear(), day0.getMonth(), day0.getDate() - 5, ...getRandomTime().split(':'))
-      const day3 = new Date(day0.getFullYear(), day0.getMonth() - 1, day0.getDate() - 23, ...getRandomTime().split(':'))
-      const day4 = new Date(day0.getFullYear(), day0.getMonth() - 2, day0.getDate() - 1, ...getRandomTime().split(':'))
+      const getDate = (yearOffset = 0, monthOffset = 0, dayOffset = 0) => {
+        const day0 = new Date();
+        return new Date(
+          day0.getFullYear() + yearOffset,
+          day0.getMonth() + monthOffset,
+          day0.getDate() + dayOffset,
+          ...getRandomTime().split(':'),
+        );
+      };
+
+      const day1 = getDate(0, 0, -13);
+      const day2 = getDate(0, 0, -5);
+      const day3 = getDate(0, -1, -23);
+      const day4 = getDate(0, -2, -1);
 
       const api = Leaderboard(document.getElementById('pipe-masters'));
       api.update([

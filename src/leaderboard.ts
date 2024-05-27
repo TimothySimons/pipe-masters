@@ -104,6 +104,9 @@ export function Leaderboard<T extends HTMLTableElement>(element: T): Api {
   return {
     update(entries: LeaderboardEntry[]) {
       const tbody = element.querySelector('tbody');
+      if (tbody === null) {
+        throw new Error("Failed to update table: tbody is null.");
+      }
       const rows = tbody.querySelectorAll('tr');
       rows.forEach(row => row.remove());
 
@@ -151,10 +154,7 @@ function toRowHTML(index: number, entry: LeaderboardEntry): string {
       entry.status === Status.Success ? 'bg-green-500/20 text-green-900' : 'bg-amber-500/20 text-amber-900',
     )
     .replace('{$HIGHLIGHT}', entry.highlight ? 'bg-opacity-5' : 'bg-opacity-0')
-    .replace('{$SCORE}', entry.score !== null && entry.score !== undefined ? entry.score.toString() : '')
-    .replace('{$DATE}', entry.date !== null && entry.date !== undefined ? toDateHTML(entry.date) : '')
-    .replace(
-      '{$TIME}',
-      entry.date !== null && entry.date !== undefined ? entry.date.toLocaleTimeString() : '',
-    );
+    .replace('{$SCORE}', entry.score ? entry.score.toString() : '')
+    .replace('{$DATE}', entry.date ? toDateHTML(entry.date) : '')
+    .replace('{$TIME}', entry.date ? entry.date.toLocaleTimeString() : '');
 }

@@ -1,4 +1,5 @@
 dist/
+src/output.css
 
 *.js
 *.d.ts
