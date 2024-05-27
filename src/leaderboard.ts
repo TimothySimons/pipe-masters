@@ -32,7 +32,7 @@ const ROW_TEMPLATE = `<tr class="bg-teal-700 {$HIGHLIGHT}">
    </td>
     <td class="p-4 border-b border-blue-gray-50">
       <div class="flex items-center gap-3">
-        <img src="{$IMAGE_URL}" alt={$NAME} class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1">
+        <img src="{$IMAGE_URL}" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1">
         <div class="flex flex-col">
           <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">{$NAME}</p>
           <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-70">{$VERSION}</p>
@@ -143,7 +143,7 @@ function toRowHTML(index: number, entry: LeaderboardEntry): string {
   ('');
 
   return ROW_TEMPLATE.replace('{$INDEX}', index.toString())
-    .replaceAll('{$NAME}', entry.name)
+    .replace('{$NAME}', entry.name)
     .replace('{$BUILD}', entry.build)
     .replace('{$HASH}', entry.hash)
     .replace('{$VERSION}', entry.version)
