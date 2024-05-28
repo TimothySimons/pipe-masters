@@ -1,13 +1,13 @@
 # Pipe Masters
 
-![pipe masters-min](https://github.com/TimothySimons/pipe-masters/assets/42070232/7bfea8e7-279e-4dfb-9a7d-6841daaafd51)
-Inspired by [Kaggle](https://www.kaggle.com/), whose community has successfully produced the highest scoring prediction models across many different domains.
-
 ## Introduction and Context
 
 This repository ***is not*** a fully-fledged, feature-full AI CI/CD leaderboard application. It is a simple UI component behind a simple API that illustrates an idea:
 
 > *What is the best way to accelerate the continuous improvement of prediction models in production? A CI/CD Leaderboard*
+
+![pipe masters-min](https://github.com/TimothySimons/pipe-masters/assets/42070232/7bfea8e7-279e-4dfb-9a7d-6841daaafd51)
+Inspired by [Kaggle](https://www.kaggle.com/), whose community has successfully produced the highest scoring prediction models across many different domains.
 
 ## Benefits of a CI/CD Leaderboard
 
