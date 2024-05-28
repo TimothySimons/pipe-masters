@@ -15,10 +15,8 @@ This short write-up argues that a CI/CD leaderboard is the ideal approach. It ha
 
 * Leverages CI/CD to produce robust and reliable software
 * Provides an objective and unbiased measure of performance
-
 * Encourages exploration of the solution space
 * Converges towards an optimal solution
-
 * It is a historical view of model performance and progress
 * Offers relevant retrospective analysis.
 
@@ -26,7 +24,7 @@ This short write-up argues that a CI/CD leaderboard is the ideal approach. It ha
 
 Prediction models should be evaluated using a validation dataset and then chosen based on their performance against a separate, unseen final test dataset. This ensures:
 
-- **Reducing overfitting:** By using a separate test set for final selection, you mitigate the risk of overfitting to the validation set.
-- **Improved generalisation:** The hidden test set ensures that the selected model generalises well to unseen data.
-- **Fair evaluation:** The final selection process provides a fair and objective evaluation of the models.
+* **Reducing overfitting:** By using a separate test set for final selection, you mitigate the risk of overfitting to the validation set.
+* **Improved generalisation:** The hidden test set ensures that the selected model generalises well to unseen data.
+* **Fair evaluation:** The final selection process provides a fair and objective evaluation of the models.
 
