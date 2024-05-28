@@ -82,6 +82,7 @@ export enum Status {
 }
 
 export interface LeaderboardEntry {
+  index: string;
   name: string;
   version: string;
   status: Status;
@@ -110,14 +111,13 @@ export function Leaderboard<T extends HTMLTableElement>(element: T): Api {
       const rows = tbody.querySelectorAll('tr');
       rows.forEach(row => row.remove());
 
-      let index = 1;
-      const rowHTML = entries.map(entry => toRowHTML(index++, entry)).join('');
+      const rowHTML = entries.map(entry => toRowHTML(entry)).join('');
       tbody.innerHTML = rowHTML;
     },
   };
 }
 
-function toRowHTML(index: number, entry: LeaderboardEntry): string {
+function toRowHTML(entry: LeaderboardEntry): string {
   const getOrdinalSuffix = (day: number): string => {
     if (day > 3 && day < 21) return 'th';
     switch (day % 10) {
@@ -142,7 +142,8 @@ function toRowHTML(index: number, entry: LeaderboardEntry): string {
 
   ('');
 
-  return ROW_TEMPLATE.replace('{$INDEX}', index.toString())
+  return ROW_TEMPLATE
+    .replace('{$INDEX}', entry.index || '')
     .replace('{$NAME}', entry.name)
     .replace('{$BUILD}', entry.build)
     .replace('{$HASH}', entry.hash)
